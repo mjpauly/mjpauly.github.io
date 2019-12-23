@@ -1,1 +1,4 @@
+./code/rebuild.sh path/to/index.md
 cat code/header.html > index.html && md index.md >> index.html && cat code/footer.html >> index.html
+
+python -m http.server 8000
