@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Code - LUCY IN THE SKY WITH DIODES</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
+<link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/old/fancybox.css?1234" />
+<link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1552697051" title="wsite-theme-css" />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+<style type='text/css'>
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-family:"Montserrat" !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {color:#626262 !important;}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-family:"Montserrat" !important;font-weight:700 !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {color:#d5d5d5 !important;}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-family:"Montserrat" !important;color:#818181 !important;text-transform:  uppercase !important;}
+#wsite-title {font-family:"Montserrat" !important;font-weight:700 !important;font-style:normal !important;}
+.wsite-menu-default a {font-family:"Montserrat" !important;font-weight:700 !important;text-transform:  uppercase !important;}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-family:"Montserrat" !important;font-weight:700 !important;letter-spacing: -3px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-family:"Montserrat" !important;text-transform:  none !important;letter-spacing: 0px !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-size:16px !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {font-size:98px !important;}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{font-size:10px !important;}
+#wsite-title {font-size:30px !important;}
+.wsite-menu-default a {font-size:13px !important;}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-size:98px !important;}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {font-size:18px !important;line-height:34px !important;}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+}</style>
+
+		<script>
+var STATIC_BASE = '//cdn1.editmysite.com/';
+var ASSETS_BASE = '//cdn2.editmysite.com/';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+
+<script type="text/javascript" src="http://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script>
+<script src="http://cdn2.editmysite.com/js/site/main.js?buildTime=1234"></script><script type="text/javascript">
+		function initCustomerAccountsModels() {
+					(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
+_W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":"_W.CustomerAccounts.BackboneModelData","collection_namespace":"_W.CustomerAccounts.BackboneCollectionData","bootstrap_namespace":"_W.CustomerAccounts.BackboneBootstrap","models":{"CustomerAccounts":{"_class":"CustomerAccounts.Model.CustomerAccounts","defaults":null,"validation":null,"types":null,"idAttribute":null,"keydefs":null}},"collections":{"CustomerAccounts":{"_class":"CustomerAccounts.Collection.CustomerAccounts"}},"bootstrap":[]});
+})();
+		}
+		if(document.createEvent && document.addEventListener) {
+			var initEvt = document.createEvent('Event');
+			initEvt.initEvent('customerAccountsModelsInitialized', true, false);
+			document.dispatchEvent(initEvt);
+		} else if(document.documentElement.initCustomerAccountsModels === 0){
+			document.documentElement.initCustomerAccountsModels++
+		}
+		</script>
+		<script type="text/javascript"> _W = _W || {}; _W.securePrefix='UNSET'; </script><script>_W = _W || {};
+			_W.customerLocale = "en_US";
+			_W.storeName = null;
+			_W.storeCountry = "US";
+			_W.storeCurrency = "USD";
+			_W.storeEuPrivacyPolicyUrl = "";
+			com_currentSite = "829754981335471523";
+			com_userID = "124781441";</script><script type="text/javascript">_W.configDomain = "www.weebly.com";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="http://cdn2.editmysite.com/js/lang/en/stl.js?buildTime=1234&"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	var IS_ARCHIVE = 1;
+	
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"366149526722957834","title":"Project Overview","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"811868127147179792","title":"Members","url":"members.html","target":"","nav_menu":false,"nonclickable":false},{"id":"443809771355638969","title":"Mechanical Design","url":"mechanical-design.html","target":"","nav_menu":false,"nonclickable":false},{"id":"739806476996704838","title":"Electrical Design","url":"electrical-design.html","target":"","nav_menu":false,"nonclickable":false},{"id":"801531649635944889","title":"Code","url":"code.html","target":"","nav_menu":false,"nonclickable":false},{"id":"514253561822384833","title":"Lessons Learned","url":"lessons-learned.html","target":"","nav_menu":false,"nonclickable":false}],
+			"801531649635944889",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{}
+		)
+	}
+//-->
+</script>
+		
+		
+	</head>
+	<body class="header-page  wsite-page-code  full-width-body-off header-overlay-off alt-nav-off  wsite-theme-light"><div class="wrapper">
+    <div class="birdseye-header">
+      <div class="nav-wrap">
+        <div class="container">
+          <div class="logo"><span class="wsite-logo">
+
+	<a href="">
+	
+	<span id="wsite-title">LUCY IN THE SKY WITH DIODES</span>
+	
+	</a>
+
+</span></div>
+          <div class="nav desktop-nav"><ul class="wsite-menu-default">
+		<li id="pg366149526722957834" class="wsite-menu-item-wrap">
+			<a
+						href="index.html"
+				class="wsite-menu-item"
+				>
+				Project Overview
+			</a>
+			
+		</li>
+		<li id="pg811868127147179792" class="wsite-menu-item-wrap">
+			<a
+						href="members.html"
+				class="wsite-menu-item"
+				>
+				Members
+			</a>
+			
+		</li>
+		<li id="pg443809771355638969" class="wsite-menu-item-wrap">
+			<a
+						href="mechanical-design.html"
+				class="wsite-menu-item"
+				>
+				Mechanical Design
+			</a>
+			
+		</li>
+		<li id="pg739806476996704838" class="wsite-menu-item-wrap">
+			<a
+						href="electrical-design.html"
+				class="wsite-menu-item"
+				>
+				Electrical Design
+			</a>
+			
+		</li>
+		<li id="active" class="wsite-menu-item-wrap">
+			<a
+						href="code.html"
+				class="wsite-menu-item"
+				>
+				Code
+			</a>
+			
+		</li>
+		<li id="pg514253561822384833" class="wsite-menu-item-wrap">
+			<a
+						href="lessons-learned.html"
+				class="wsite-menu-item"
+				>
+				Lessons Learned
+			</a>
+			
+		</li>
+</ul>
+</div>
+          <label class="hamburger"><span></span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-wrap">
+      <div class="wsite-elements wsite-not-footer wsite-header-elements">
+	<div class="wsite-section-wrap">
+	<div  class="wsite-section wsite-header-section wsite-section-bg-image" style="background-image: url(&quot;uploads/1/2/4/7/124781441/background-images/196974072.jpg&quot;) ;background-repeat: no-repeat ;background-position: undefined undefined ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
+		<div class="wsite-section-content">
+			
+          <div class="container">
+            <div class="banner">
+				<div class="wsite-section-elements">
+					<h2 class="wsite-content-title">Code.</h2>
+				</div>
+			</div>
+          </div>
+      
+		</div>
+		<div class=""></div>
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div class="main-wrap">
+      <div id="wsite-content" class="wsite-elements wsite-not-footer">
+	<div class="wsite-section-wrap">
+	<div class="wsite-section wsite-body-section wsite-background-13"  >
+		<div class="wsite-section-content">
+          <div class="container">
+			<div class="wsite-section-elements">
+				<div class="paragraph" style="text-align:center;">Below is the code that we used for the entire system. We decided that it would be best to simply go into the armory, then repeatedly go from there to the front left corner and back. This allowed us to use to corner for orientation and also shoot around the wall at Casterly Rock. This made check off simple, and gave us a chance to hit the dragon as it moved back and forth behind the tower. A small servo would hold six balls inside the ball hopper and let them go once we got to the corner, allowing us to control how we shoot. Our ultrasonic sensors allowed us to determine position relative to the wall we were moving towards.</div>
+			</div>
+		</div>
+      </div>
+
+	</div>
+</div>
+<div class="wsite-section-wrap">
+	<div class="wsite-section wsite-body-section wsite-background-11"  >
+		<div class="wsite-section-content">
+          <div class="container">
+			<div class="wsite-section-elements">
+				<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/1/2/4/7/124781441/image-from-ios_orig.jpg" alt="Picture" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+<div id="906124886852236136"><div><style type="text/css">
+	#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--light {
+  padding: 20px 0px;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--light .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #C9CDCF;
+  border-right: 1px solid #C9CDCF;
+  border-top: 1px solid #C9CDCF;
+  background-color: #F8F8F8;
+  color: #363B3E;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--light .header .paragraph {
+  margin: 0;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--light .body-code {
+  margin: 0;
+  border: 1px solid #C9CDCF;
+  background-color: #FFFFFF;
+  color: #666C70;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--dark {
+  padding: 20px 0px;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--dark .ace-tomorrow-night-eighties {
+  background-color: #363B3E;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--dark .header {
+  padding: 10px 20px;
+  font-weight: bold;
+  border-left: 1px solid #E0E1E2;
+  border-right: 1px solid #E0E1E2;
+  border-top: 1px solid #E0E1E2;
+  background-color: #666C70;
+  color: #FFFFFF;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--dark .header .paragraph {
+  margin: 0;
+}
+#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3 .code-editor--dark .body-code {
+  margin: 0;
+  border: 1px solid #E0E1E2;
+  background-color: #363B3E;
+  color: #F8F8F8;
+}
+
+</style><div id="element-fc20fe71-efa1-44b8-92b1-3e721cb26af3" data-platform-element-id="270170748587580171-1.3.3" class="platform-element-contents">
+	<div class="code-editor--light">
+    <div class="header">
+				<div class="paragraph">Teensy Code</div>
+    </div>
+    <div class="body-code">
+				<pre class="editor"></pre>
+				<p>
+				<a href="main.cpp.txt">Click to view!</a>
+				</p>
+    </div>
+</div>
+</div>
+<div style="clear:both;"></div><script type="text/javascript" class="element-script">function setupElement906124886852236136() {
+	var requireFunc = window.platformElementRequire || window.require;
+
+	// Relies on a global require, specific to platform elements
+	requireFunc([
+		'w-global',
+		'underscore',
+		'jquery',
+		'backbone',
+		'util/platform/elements/PlatformElement',
+		'util/platform/elements/PlatformElementSettings'
+	], function(
+		_W,
+		_,
+		$,
+		Backbone,
+		PlatformElement,
+		PlatformElementSettings
+	) {
+		var dependencies = ["\/\/marketplace.editmysite.com\/elements\/270170748587580171-1.3.3\/assets\/ace\/ace.js"] || [];
+		var platform_element_id = "270170748587580171-1.3.3";
+
+		if (typeof _W.loadedPlatformDependencies === 'undefined') {
+			_W.loadedPlatformDependencies = [];
+		}
+
+		if (typeof _W.platformElements === 'undefined') {
+			_W.platformElements = [];
+		}
+
+		if (typeof _W.platformElements[platform_element_id] === 'undefined') {
+			_W.platformElements[platform_element_id] = {};
+			_W.platformElements[platform_element_id].deferredObject = new $.Deferred();
+			_W.platformElements[platform_element_id].deferredPromise = _W.platformElements[platform_element_id].deferredObject.promise();
+		}
+
+		if(_.intersection(_W.loadedPlatformDependencies, dependencies).length !== dependencies.length){
+			_.reduce(dependencies, function(promise, nextScript){
+				_W.loadedPlatformDependencies.push(nextScript);
+				return promise.then(function(){
+					return $.getScript(nextScript);
+				});
+			}, $().promise()).then(function(){
+				_W.platformElements[platform_element_id].deferredObject.resolve();
+			});
+		}
+
+		if (dependencies.length === 0){
+			_W.platformElements[platform_element_id].deferredObject.resolve();
+		}
+
+		_W.platformElements[platform_element_id].deferredPromise.done(function(){
+			var _ElementDefinition = /**
+ * This is required for element rendering to be possible
+ * @type {PlatformElement}
+ */
+(function() {
+    var CodeBlock = PlatformElement.extend({
+        /**
+         * PlatformElement initialization. Code to setup the 
+         * element should go here.
+         */
+        initialize: function() {
+            this.theme = this.settings.get('style') == 'light' ? 'tomorrow' : 'tomorrow_night_eighties';
+
+            /**
+             * The script are not defined in the manifest 
+             * so that 6mb of scripts are not loaded. This 
+             * allows us to load only scripts needed for 
+             * each language and theme.
+             */
+            $.when(
+                $.getScript(this.assets_path + 'ace/mode-' + this.settings.get('syntax') + '.js'),
+                $.getScript(this.assets_path + 'ace/theme-' + this.theme + '.js')
+            ).done(function() {
+                /**
+                 * After the scripts are loaded, we can
+                 * then make the call to setup the editor.
+                 */
+                this.setUpEditor();
+            }.bind(this));
+
+            this.checkIfHeader();
+            this.modifyStyle();
+        },
+
+        /**
+         * Function to setup the editor
+         */
+        setUpEditor: function() {
+            this.editor = ace.edit(this.$el.find('.editor')[0]);
+            this.editor.setValue(this.settings.get('code'), -1);
+
+            this.editor.setTheme('ace/theme/' + this.theme);
+            this.editor.getSession().setMode('ace/mode/' + this.settings.get('syntax'));
+
+            this.editor.container.style.lineHeight = '26px';
+            this.editor.container.style.fontSize = '14px';
+            this.editor.renderer.setScrollMargin(20, 20);
+            this.editor.renderer.setPadding(20);
+
+            this.editor.setOptions({
+                'highlightActiveLine': this.settings.get('highlight_active_line'),
+                'readOnly': true,
+                'showPrintMargin': false
+            });
+
+            this.editor.renderer.setOptions({
+                'showGutter': this.settings.get('show_gutter'),
+                'maxLines': this.settings.get('max_lines'),
+                'minLines': this.settings.get('min_lines'),
+                'displayIndentGuides': this.settings.get('display_indent_guides')
+            });
+
+            this.editor.session.setOptions({
+                'wrap': this.settings.get('line_wrap'),
+                'useSoftTabs': this.settings.get('use_soft_tabs'),
+                'useWorker': false // workers rebind window.require so we need to disable them
+            });
+        },
+
+        /**
+         * Checks settings for whether or not the header
+         * should be displayed or not.
+         */
+        checkIfHeader: function() {
+            if(this.settings.get('display_header') == "0") {
+                this.$el.find('.header').remove();
+            }
+        },
+
+        /**
+         * Minor style tweaks done on some elements
+         */
+        modifyStyle: function() {
+            this.$el.find('.ace_content').css({
+                'margin-left': '20px'
+            });
+        }
+    });
+
+    return CodeBlock;
+})();;
+
+			if (typeof _ElementDefinition == 'undefined' || typeof _ElementDefinition == 'null') {
+				var _ElementDefinition = PlatformElement.extend({});
+			}
+
+			var _Element = _ElementDefinition.extend({
+				initialize: function() {
+					// we still want to call the initialize function defined by the developer
+					// however, we don't want to call it until placeholders have been replaced
+					this.placeholderInterval = setInterval(function() {
+						// so use setInterval to check for placeholders.
+						if (this.$('.platform-element-child-placeholder').length == 0) {
+							clearInterval(this.placeholderInterval);
+							this.constructor.__super__.initialize.apply(this);
+						}
+					}.bind(this), 100);
+				}
+			});
+
+			_Element.prototype.settings = new PlatformElementSettings({"max_lines_each":[{"max_lines_index":0},{"max_lines_index":1},{"max_lines_index":2},{"max_lines_index":3},{"max_lines_index":4},{"max_lines_index":5},{"max_lines_index":6},{"max_lines_index":7},{"max_lines_index":8},{"max_lines_index":9},{"max_lines_index":10},{"max_lines_index":11},{"max_lines_index":12},{"max_lines_index":13},{"max_lines_index":14},{"max_lines_index":15},{"max_lines_index":16},{"max_lines_index":17},{"max_lines_index":18},{"max_lines_index":19},{"max_lines_index":20},{"max_lines_index":21},{"max_lines_index":22},{"max_lines_index":23},{"max_lines_index":24},{"max_lines_index":25},{"max_lines_index":26},{"max_lines_index":27},{"max_lines_index":28},{"max_lines_index":29}],"min_lines_each":[{"min_lines_index":0}],"style":"light","display_header":false,"syntax":"c_cpp","code":"#include <Arduino.h>\r\n#include <Metro.h>\r\n#include <Servo.h>\r\n\r\n#define PERIOD_US 1000\r\nuint32_t timer;\r\nint printTimer;\r\nint stopTimer;\r\n\r\n#define M1IN1 6\r\n#define M1IN2 7\r\n#define M2IN1 9\r\n#define M2IN2 8\r\n#define M3IN1 4\r\n#define M3IN2 5\r\n#define M4IN1 3\r\n#define M4IN2 2\r\n\r\n#define USSR_TRIG 13\r\n#define ECHO_N 15\r\n#define ECHO_E 20\r\n#define ECHO_W 14\r\n#define ECHO_S 21\r\n\r\n#define BALL_SERVO 0\r\n#define MOTOR_SERVO 1\r\n\r\n#define NORTH 0\r\n#define EAST 1\r\n#define SOUTH 2\r\n#define WEST 3\r\n\r\n#define LOAD_SOUTH 0\r\n#define LOAD_WEST 1\r\n#define LOAD_NORTH 2\r\n#define LOAD_LOADING 4\r\n#define LOAD_BACKOUT 5\r\n#define LOAD_POSITION 6\r\n#define LOAD_FIRE 7\r\n#define RELOAD_BACKOUT 8\r\n#define RELOAD_SOUTH 9\r\n\r\n\r\n#define SAMPLE 400\r\n\r\n#define MOTOR_ON 60\r\n\r\nbool alldirection = false;\r\nbool stop = false;\r\n\r\nvoid turnOnMotor(int IN1, int IN2, int speed, bool direction);\r\nvoid moveMotorXY(signed int x, signed int y);\r\nvoid readFromUSSR();\r\n\r\nvolatile uint32_t usN_timer;\r\nvolatile uint32_t usE_timer;\r\nvolatile uint32_t usW_timer;\r\nvolatile uint32_t usS_timer;\r\n\r\nvolatile uint32_t usN_value;\r\nvolatile uint32_t usE_value;\r\nvolatile uint32_t usW_value;\r\nvolatile uint32_t usS_value;\r\n\r\nvoid start_usN();\r\nvoid start_usE();\r\nvoid start_usW();\r\nvoid start_usS();\r\n\r\nvoid end_usN();\r\nvoid end_usE();\r\nvoid end_usW();\r\nvoid end_usS();\r\n\r\nint readUSSRDirection(int dir);\r\nbool checkBumperBelow(int threshold);\r\nbool checkBumperAbove(int threshold);\r\n\r\nvoid load();\r\n\r\nint motorX;\r\nint motorY;\r\nint direction;\r\nint state;\r\nbool wait;\r\n\r\nstatic Metro metTimer = Metro(800);\r\nstatic Metro ammoTimer = Metro(5000);\r\nstatic Metro backoutTimer = Metro(600);\r\nstatic Metro reloadBackoutTimer = Metro(1000);\r\nstatic Metro holdBallTimer = Metro(1000);\r\nstatic Metro dropBallTimer = Metro(300);\r\n\r\nServo ballServo;\r\nServo launchWheel;\r\n\r\nbool waitHold;\r\nbool waitDrop;\r\nint ammo;\r\n\r\nvoid setup()\r\n{\r\n  Serial.begin(57600);\r\n\r\n  \/\/ set up launch pins\r\n  ballServo.attach(BALL_SERVO);\r\n  launchWheel.attach(MOTOR_SERVO);\r\n  launchWheel.writeMicroseconds(1000);\r\n  delay(5000);\r\n  launchWheel.writeMicroseconds(1300);\r\n\r\n  ballServo.write(100);\r\n\r\n  \/\/ set up motor pins\r\n  pinMode(M1IN1, OUTPUT);\r\n  pinMode(M1IN2, OUTPUT);\r\n  pinMode(M2IN1, OUTPUT);\r\n  pinMode(M2IN2, OUTPUT);\r\n  pinMode(M3IN1, OUTPUT);\r\n  pinMode(M3IN2, OUTPUT);\r\n  pinMode(M4IN1, OUTPUT);\r\n  pinMode(M4IN2, OUTPUT);\r\n\r\n  \/\/ set up ultra-sonic sensor pins\r\n  pinMode(USSR_TRIG, OUTPUT);\r\n  pinMode(ECHO_N, INPUT);\r\n  pinMode(ECHO_E, INPUT);\r\n  pinMode(ECHO_W, INPUT);\r\n  pinMode(ECHO_S, INPUT);\r\n  digitalWrite(USSR_TRIG, LOW);\r\n\r\n  attachInterrupt(ECHO_N, start_usN, RISING);\r\n  attachInterrupt(ECHO_E, start_usE, RISING);\r\n  attachInterrupt(ECHO_W, start_usW, RISING);\r\n  attachInterrupt(ECHO_S, start_usS, RISING);\r\n\r\n  attachInterrupt(ECHO_N, end_usN, FALLING);\r\n  attachInterrupt(ECHO_E, end_usE, FALLING);\r\n  attachInterrupt(ECHO_W, end_usW, FALLING);\r\n  attachInterrupt(ECHO_S, end_usS, FALLING);\r\n\r\n  printTimer = 1;\r\n  timer = millis();\r\n\r\n  \/\/ start in the load state\r\n  direction = SOUTH;\r\n  state = LOAD_SOUTH;\r\n  motorX = -50;\r\n  motorY = 0;\r\n  wait = false;\r\n  waitHold = false;\r\n  waitDrop = false;\r\n  ammo = 0;\r\n}\r\n\r\nvoid loop()\r\n{\r\n  \/\/moveMotorXY(50, 0);\r\n  moveMotorXY(motorX, motorY);\r\n  int value = readUSSRDirection(SOUTH);\r\n  Serial.println(value);\r\n\r\n  \/\/ currently moving south to load\r\n  if (state == LOAD_SOUTH)\r\n  {\r\n    \/\/ if we hit the south wall, go west\r\n    if (checkBumperBelow(8) && !wait)\r\n    {\r\n      wait = true;\r\n      metTimer.reset();\r\n    }\r\n    if (metTimer.check() && checkBumperBelow(8) && wait)\r\n    {\r\n      metTimer.reset();\r\n      wait = false;\r\n      Serial.println(state);\r\n      state = LOAD_WEST;\r\n      direction = WEST;\r\n      motorX = 0;\r\n      motorY = -50;\r\n    }\r\n    \/\/ currently moving west to load\r\n  }\r\n  else if (state == LOAD_WEST)\r\n  {\r\n    \/\/ if we hit the west wall, load up on ammo\r\n    if (checkBumperBelow(10) && !wait)\r\n    {\r\n      wait = true;\r\n      metTimer.reset();\r\n    }\r\n    if (metTimer.check() && checkBumperBelow(10) && wait)\r\n    {\r\n      Serial.println(state);\r\n      metTimer.reset();\r\n      direction = NORTH;\r\n      state = LOAD_LOADING;\r\n      motorX = 0;\r\n      motorY = 0;\r\n      ammoTimer.reset();\r\n      wait = true;\r\n    }\r\n    \/\/ currently loading in the armoury\r\n  }\r\n  else if (state == LOAD_LOADING)\r\n  {\r\n    \/\/ move north to shoot caterly rock\r\n    if (wait && ammoTimer.check())\r\n    {\r\n      wait = false;\r\n    }\r\n    if (!wait)\r\n    {\r\n      Serial.println(state);\r\n      ammo = 6;\r\n      state = LOAD_BACKOUT;\r\n      direction = EAST;\r\n      motorX = 0;\r\n      motorY = MOTOR_ON;\r\n      backoutTimer.reset();\r\n    }\r\n  }\r\n  else if (state == LOAD_BACKOUT)\r\n  {\r\n    if (backoutTimer.check())\r\n    {\r\n      state = LOAD_NORTH;\r\n      direction = NORTH;\r\n      motorX = MOTOR_ON;\r\n      motorY = 0;\r\n    }\r\n    \/\/ currently moving north to shoot\r\n  }\r\n  else if (state == LOAD_NORTH)\r\n  {\r\n    \/\/ stop to shoot\r\n    if (!wait && checkBumperBelow(8))\r\n    {\r\n      metTimer.reset();\r\n      wait = true;\r\n    }\r\n    if (metTimer.check() && wait && checkBumperBelow(8))\r\n    {\r\n      Serial.println(state);\r\n      wait = false;\r\n      state = LOAD_POSITION;\r\n      direction = WEST;\r\n      motorX = 0;\r\n      motorY = -MOTOR_ON;\r\n      reloadBackoutTimer.reset();\r\n    }\r\n\r\n    \/\/ has already moved north, now needs to position\r\n    \/\/ itself in the corner to shoot\r\n  }\r\n  else if (state == LOAD_POSITION)\r\n  {\r\n    if (reloadBackoutTimer.check())\r\n    {\r\n      state = LOAD_FIRE;\r\n      ballServo.write(100);\r\n      holdBallTimer.reset();\r\n      waitHold = true;\r\n      direction = EAST;\r\n      motorX = 0;\r\n      motorY = 0;\r\n      moveMotorXY(motorX,motorY);\r\n    }\r\n\r\n    \/\/ currently facing casterly rock and attempting to fire at it\r\n  }\r\n  else if (state == LOAD_FIRE)\r\n  {\r\n    if(waitHold && holdBallTimer.check()) {\r\n      waitHold = false;\r\n      ballServo.write(170);\r\n      dropBallTimer.reset();\r\n      waitDrop = true;\r\n    }\r\n    if(waitDrop && dropBallTimer.check()) {\r\n      ammo--;\r\n      if(ammo == 0) {\r\n        state = RELOAD_BACKOUT;\r\n        motorX = 0;\r\n        motorY = MOTOR_ON;\r\n        waitDrop = false;\r\n        waitHold = false;\r\n        backoutTimer.reset();\r\n        ballServo.write(100);\r\n      } else {\r\n        waitDrop = false;\r\n        holdBallTimer.reset();\r\n        waitHold = true;\r\n        ballServo.write(100);\r\n      }\r\n    }\r\n  } \r\n  else if (state == RELOAD_BACKOUT) \r\n  {\r\n      if(backoutTimer.check()) {\r\n          state = RELOAD_SOUTH;\r\n          motorX = -MOTOR_ON;\r\n          motorY = 0;\r\n          direction = SOUTH;\r\n          wait = false;\r\n      }\r\n  }  \r\n  else if (state == RELOAD_SOUTH) {\r\n \r\n    \/\/ stop to shoot\r\n    if (!wait && checkBumperBelow(8))\r\n    {\r\n      metTimer.reset();\r\n      wait = true;\r\n    }\r\n    if (metTimer.check() && wait && checkBumperBelow(8))\r\n    {\r\n      Serial.println(state);\r\n      wait = false;\r\n      state = LOAD_WEST;\r\n      direction = WEST;\r\n      motorX = 0;\r\n      motorY = -MOTOR_ON;\r\n      \r\n    }\r\n\r\n  }\r\n          \r\n\r\n}\r\n\r\n\/* checkBumper(int threshold)\r\n * ------------\r\n * validates to see if a specified bumper has been hit, used\r\n * for progressing the events of the warrior states. The threshold\r\n * arugument can be used to specify how far before the wall you \r\n * want to identify as \"hitting the wall\".\r\n *\/\r\nbool checkBumperBelow(int threshold)\r\n{\r\n  int value = readUSSRDirection(direction);\r\n  return value < threshold;\r\n}\r\n\r\nbool checkBumperAbove(int threshold)\r\n{\r\n  int value = readUSSRDirection(direction);\r\n  return value >= threshold;\r\n}\r\n\r\n\/* readUSSRDirection(char dir)\r\n * ------------\r\n * Returns a value for the specified ultra-sonic sensor in inches\r\n *\/\r\nint readUSSRDirection(int dir)\r\n{\r\n\r\n  \/\/ send trigger\r\n  delayMicroseconds(2);\r\n  digitalWrite(USSR_TRIG, HIGH);\r\n  delayMicroseconds(10);\r\n  digitalWrite(USSR_TRIG, LOW);\r\n\r\n  \/\/ int nval = (usN_value \/ 2) \/ 74.0;\r\n  \/\/ int eval = (usE_value \/ 2) \/ 74.0;\r\n  \/\/ int wval = (usW_value \/ 2) \/ 74.0;\r\n  \/\/ int sval = (usS_value \/ 2) \/ 74.0;\r\n  \/\/\r\n  \/\/Serial.print(\"Direction: \");\r\n  \/\/Serial.print(dir);\r\n  \/\/Serial.print(\" Value: \");\r\n\r\n  \/\/if(dir == NORTH) Serial.print(nval);\r\n  \/\/if(dir == EAST) Serial.print(eval);\r\n  \/\/if(dir == WEST) Serial.print(wval);\r\n  \/\/if(dir == SOUTH) Serial.print(sval);\r\n\r\n  Serial.println(\" \");\r\n\r\n  \/\/ return distance from specified wall from reading sensor\r\n  if (dir == NORTH)\r\n    return (usN_value \/ 2) \/ 29.1;\r\n  if (dir == EAST)\r\n    return (usE_value \/ 2) \/ 29.1;\r\n  if (dir == WEST)\r\n    return (usW_value \/ 2) \/ 29.1;\r\n  if (dir == SOUTH)\r\n    return (usS_value \/ 2) \/ 29.1;\r\n\r\n  \/\/ should not return -1, meaning an invalid direction is passede\r\n  return -1;\r\n}\r\n\r\nvoid start_usN()\r\n{\r\n  usN_timer = micros();\r\n  attachInterrupt(ECHO_N, end_usN, FALLING);\r\n}\r\n\r\nvoid end_usN()\r\n{\r\n  \/\/ usN_value = micros() - usN_timer;\r\n  usN_value -= usN_value \/ SAMPLE;\r\n  usN_value += (micros() - usN_timer) \/ SAMPLE;\r\n  attachInterrupt(ECHO_N, start_usN, RISING);\r\n}\r\n\r\nvoid start_usE()\r\n{\r\n  usE_timer = micros();\r\n  attachInterrupt(ECHO_E, end_usE, FALLING);\r\n}\r\n\r\nvoid end_usE()\r\n{\r\n  \/\/usE_value = micros() - usE_timer;\r\n\r\n  usE_value -= usE_value \/ SAMPLE;\r\n  usE_value += (micros() - usE_timer) \/ SAMPLE;\r\n  attachInterrupt(ECHO_E, start_usE, RISING);\r\n}\r\n\r\nvoid start_usW()\r\n{\r\n  usW_timer = micros();\r\n  attachInterrupt(ECHO_W, end_usW, FALLING);\r\n}\r\n\r\nvoid end_usW()\r\n{\r\n  \/\/usW_value = micros() - usW_timer;\r\n\r\n  usW_value -= usW_value \/ SAMPLE;\r\n  usW_value += (micros() - usW_timer) \/ SAMPLE;\r\n  attachInterrupt(ECHO_W, start_usW, RISING);\r\n}\r\n\r\nvoid start_usS()\r\n{\r\n  usS_timer = micros();\r\n  attachInterrupt(ECHO_S, end_usS, FALLING);\r\n}\r\n\r\nvoid end_usS()\r\n{\r\n  \/\/usS_value = micros() - usS_timer;\r\n\r\n  usS_value -= usS_value \/ SAMPLE;\r\n  usS_value += (micros() - usS_timer) \/ SAMPLE;\r\n  attachInterrupt(ECHO_S, start_usS, RISING);\r\n}\r\n\r\nvoid readFromUSSR()\r\n{\r\n  delayMicroseconds(2);\r\n  digitalWrite(USSR_TRIG, HIGH);\r\n  delayMicroseconds(10);\r\n  digitalWrite(USSR_TRIG, LOW);\r\n\r\n  int inchesN = (usN_value \/ 2) \/ 148.0;\r\n  int inchesE = (usE_value \/ 2) \/ 148.0;\r\n  int inchesW = (usW_value \/ 2) \/ 148.0;\r\n  int inchesS = (usS_value \/ 2) \/ 148.0;\r\n  Serial.print(\"distanceN: \");\r\n  Serial.println(inchesN);\r\n\r\n  Serial.print(\"distanceE: \");\r\n  Serial.println(inchesE);\r\n\r\n  Serial.print(\"distanceW: \");\r\n  Serial.println(inchesW);\r\n\r\n  Serial.print(\"distanceS: \");\r\n  Serial.println(inchesS);\r\n  Serial.println(\" \");\r\n}\r\n\r\nvoid moveMotor()\r\n{\r\n}\r\n\r\nvoid moveMotorXY(signed int x, signed int y)\r\n{\r\n  turnOnMotor(M1IN1, M1IN2, abs(x) * 2, x >= 0 ? 1 : 0);\r\n  turnOnMotor(M3IN1, M3IN2, abs(x) * 2, x >= 0 ? 0 : 1);\r\n  turnOnMotor(M2IN1, M2IN2, abs(y) * 2, y >= 0 ? 1 : 0);\r\n  turnOnMotor(M4IN1, M4IN2, abs(y) * 2, y >= 0 ? 1 : 0);\r\n}\r\n\r\nvoid turnOnMotor(int IN1, int IN2, int speed, bool direction)\r\n{\r\n  if (direction)\r\n  {\r\n    analogWrite(IN1, 255 - speed);\r\n    digitalWrite(IN2, 1);\r\n  }\r\n  else\r\n  {\r\n    analogWrite(IN1, speed);\r\n    digitalWrite(IN2, 0);\r\n  }\r\n}","highlight_active_line":false,"show_gutter":false,"display_indent_guides":false,"line_wrap":false,"use_soft_tabs":true,"max_lines":30,"min_lines":1});
+			_Element.prototype.settings.page_element_id = "906124886852236136";
+
+			_Element.prototype.element_id = "fc20fe71-efa1-44b8-92b1-3e721cb26af3";
+			_Element.prototype.user_id = "124781441";
+			_Element.prototype.site_id = "829754981335471523";
+			_Element.prototype.assets_path = "//marketplace.editmysite.com/elements/270170748587580171-1.3.3/assets/";
+			new _Element({
+				el: '#element-fc20fe71-efa1-44b8-92b1-3e721cb26af3'
+			});
+		});
+	});
+
+}
+
+if (typeof document.documentElement.appReady == 'undefined') {
+	document.documentElement.appReady = 0;
+}
+
+if (document.documentElement.appReady || (window.inEditor && window.inEditor())) {
+	setupElement906124886852236136();
+} else if (document.createEvent && document.addEventListener) {
+	document.addEventListener('appReady', setupElement906124886852236136, false);
+} else {
+	document.documentElement.attachEvent('onpropertychange', function(event){
+		if (event.propertyName == 'appReady') {
+			setupElement906124886852236136();
+		}
+	});
+}
+
+</script></div></div>
+			</div>
+		</div>
+      </div>
+
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer">Create a <a target="_top" href="http://www.weebly.com/">free web site</a> with <a target="_top" href="http://www.weebly.com/" title="free web site">Weebly</a></div>
+    </div><!-- end footer-wrap -->
+  </div><!-- /.wrapper -->
+
+  <div id="navMobile" class="nav mobile-nav">
+    <label class="hamburger"><span></span></label>
+    <ul class="wsite-menu-default">
+    		<li id="pg366149526722957834" class="wsite-menu-item-wrap">
+    			<a
+    						href="index.html"
+    				class="wsite-menu-item"
+    				>
+    				Project Overview
+    			</a>
+    			
+    		</li>
+    		<li id="pg811868127147179792" class="wsite-menu-item-wrap">
+    			<a
+    						href="members.html"
+    				class="wsite-menu-item"
+    				>
+    				Members
+    			</a>
+    			
+    		</li>
+    		<li id="pg443809771355638969" class="wsite-menu-item-wrap">
+    			<a
+    						href="mechanical-design.html"
+    				class="wsite-menu-item"
+    				>
+    				Mechanical Design
+    			</a>
+    			
+    		</li>
+    		<li id="pg739806476996704838" class="wsite-menu-item-wrap">
+    			<a
+    						href="electrical-design.html"
+    				class="wsite-menu-item"
+    				>
+    				Electrical Design
+    			</a>
+    			
+    		</li>
+    		<li id="active" class="wsite-menu-item-wrap">
+    			<a
+    						href="code.html"
+    				class="wsite-menu-item"
+    				>
+    				Code
+    			</a>
+    			
+    		</li>
+    		<li id="pg514253561822384833" class="wsite-menu-item-wrap">
+    			<a
+    						href="lessons-learned.html"
+    				class="wsite-menu-item"
+    				>
+    				Lessons Learned
+    			</a>
+    			
+    		</li>
+    </ul>
+  </div>
+
+	<script type="text/javascript" src="files/theme/plugins.js"></script>
+  <script type="text/javascript" src="files/theme/custom.js"></script>
+    <div id="customer-accounts-app"></div>
+    <script src="http://cdn2.editmysite.com/js/site/main-customer-accounts-site.js?buildTime=1234"></script>
+
+		
+	</body>
+</html>

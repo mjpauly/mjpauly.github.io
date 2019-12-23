@@ -1,0 +1,502 @@
+#include <Arduino.h>
+#include <Metro.h>
+#include <Servo.h>
+
+#define PERIOD_US 1000
+uint32_t timer;
+int printTimer;
+int stopTimer;
+
+#define M1IN1 6
+#define M1IN2 7
+#define M2IN1 9
+#define M2IN2 8
+#define M3IN1 4
+#define M3IN2 5
+#define M4IN1 3
+#define M4IN2 2
+
+#define USSR_TRIG 13
+#define ECHO_N 15
+#define ECHO_E 20
+#define ECHO_W 14
+#define ECHO_S 21
+
+#define BALL_SERVO 0
+#define MOTOR_SERVO 1
+
+#define NORTH 0
+#define EAST 1
+#define SOUTH 2
+#define WEST 3
+
+#define LOAD_SOUTH 0
+#define LOAD_WEST 1
+#define LOAD_NORTH 2
+#define LOAD_LOADING 4
+#define LOAD_BACKOUT 5
+#define LOAD_POSITION 6
+#define LOAD_FIRE 7
+#define RELOAD_BACKOUT 8
+#define RELOAD_SOUTH 9
+
+
+#define SAMPLE 400
+
+#define MOTOR_ON 60
+
+bool alldirection = false;
+bool stop = false;
+
+void turnOnMotor(int IN1, int IN2, int speed, bool direction);
+void moveMotorXY(signed int x, signed int y);
+void readFromUSSR();
+
+volatile uint32_t usN_timer;
+volatile uint32_t usE_timer;
+volatile uint32_t usW_timer;
+volatile uint32_t usS_timer;
+
+volatile uint32_t usN_value;
+volatile uint32_t usE_value;
+volatile uint32_t usW_value;
+volatile uint32_t usS_value;
+
+void start_usN();
+void start_usE();
+void start_usW();
+void start_usS();
+
+void end_usN();
+void end_usE();
+void end_usW();
+void end_usS();
+
+int readUSSRDirection(int dir);
+bool checkBumperBelow(int threshold);
+bool checkBumperAbove(int threshold);
+
+void load();
+
+int motorX;
+int motorY;
+int direction;
+int state;
+bool wait;
+
+static Metro metTimer = Metro(800);
+static Metro ammoTimer = Metro(5000);
+static Metro backoutTimer = Metro(600);
+static Metro reloadBackoutTimer = Metro(1000);
+static Metro holdBallTimer = Metro(1000);
+static Metro dropBallTimer = Metro(300);
+
+Servo ballServo;
+Servo launchWheel;
+
+bool waitHold;
+bool waitDrop;
+int ammo;
+
+void setup()
+{
+  Serial.begin(57600);
+
+  // set up launch pins
+  ballServo.attach(BALL_SERVO);
+  launchWheel.attach(MOTOR_SERVO);
+  launchWheel.writeMicroseconds(1000);
+  delay(5000);
+  launchWheel.writeMicroseconds(1300);
+
+  ballServo.write(100);
+
+  // set up motor pins
+  pinMode(M1IN1, OUTPUT);
+  pinMode(M1IN2, OUTPUT);
+  pinMode(M2IN1, OUTPUT);
+  pinMode(M2IN2, OUTPUT);
+  pinMode(M3IN1, OUTPUT);
+  pinMode(M3IN2, OUTPUT);
+  pinMode(M4IN1, OUTPUT);
+  pinMode(M4IN2, OUTPUT);
+
+  // set up ultra-sonic sensor pins
+  pinMode(USSR_TRIG, OUTPUT);
+  pinMode(ECHO_N, INPUT);
+  pinMode(ECHO_E, INPUT);
+  pinMode(ECHO_W, INPUT);
+  pinMode(ECHO_S, INPUT);
+  digitalWrite(USSR_TRIG, LOW);
+
+  attachInterrupt(ECHO_N, start_usN, RISING);
+  attachInterrupt(ECHO_E, start_usE, RISING);
+  attachInterrupt(ECHO_W, start_usW, RISING);
+  attachInterrupt(ECHO_S, start_usS, RISING);
+
+  attachInterrupt(ECHO_N, end_usN, FALLING);
+  attachInterrupt(ECHO_E, end_usE, FALLING);
+  attachInterrupt(ECHO_W, end_usW, FALLING);
+  attachInterrupt(ECHO_S, end_usS, FALLING);
+
+  printTimer = 1;
+  timer = millis();
+
+  // start in the load state
+  direction = SOUTH;
+  state = LOAD_SOUTH;
+  motorX = -50;
+  motorY = 0;
+  wait = false;
+  waitHold = false;
+  waitDrop = false;
+  ammo = 0;
+}
+
+void loop()
+{
+  //moveMotorXY(50, 0);
+  moveMotorXY(motorX, motorY);
+  int value = readUSSRDirection(SOUTH);
+  Serial.println(value);
+
+  // currently moving south to load
+  if (state == LOAD_SOUTH)
+  {
+    // if we hit the south wall, go west
+    if (checkBumperBelow(8) && !wait)
+    {
+      wait = true;
+      metTimer.reset();
+    }
+    if (metTimer.check() && checkBumperBelow(8) && wait)
+    {
+      metTimer.reset();
+      wait = false;
+      Serial.println(state);
+      state = LOAD_WEST;
+      direction = WEST;
+      motorX = 0;
+      motorY = -50;
+    }
+    // currently moving west to load
+  }
+  else if (state == LOAD_WEST)
+  {
+    // if we hit the west wall, load up on ammo
+    if (checkBumperBelow(10) && !wait)
+    {
+      wait = true;
+      metTimer.reset();
+    }
+    if (metTimer.check() && checkBumperBelow(10) && wait)
+    {
+      Serial.println(state);
+      metTimer.reset();
+      direction = NORTH;
+      state = LOAD_LOADING;
+      motorX = 0;
+      motorY = 0;
+      ammoTimer.reset();
+      wait = true;
+    }
+    // currently loading in the armoury
+  }
+  else if (state == LOAD_LOADING)
+  {
+    // move north to shoot caterly rock
+    if (wait && ammoTimer.check())
+    {
+      wait = false;
+    }
+    if (!wait)
+    {
+      Serial.println(state);
+      ammo = 6;
+      state = LOAD_BACKOUT;
+      direction = EAST;
+      motorX = 0;
+      motorY = MOTOR_ON;
+      backoutTimer.reset();
+    }
+  }
+  else if (state == LOAD_BACKOUT)
+  {
+    if (backoutTimer.check())
+    {
+      state = LOAD_NORTH;
+      direction = NORTH;
+      motorX = MOTOR_ON;
+      motorY = 0;
+    }
+    // currently moving north to shoot
+  }
+  else if (state == LOAD_NORTH)
+  {
+    // stop to shoot
+    if (!wait && checkBumperBelow(8))
+    {
+      metTimer.reset();
+      wait = true;
+    }
+    if (metTimer.check() && wait && checkBumperBelow(8))
+    {
+      Serial.println(state);
+      wait = false;
+      state = LOAD_POSITION;
+      direction = WEST;
+      motorX = 0;
+      motorY = -MOTOR_ON;
+      reloadBackoutTimer.reset();
+    }
+
+    // has already moved north, now needs to position
+    // itself in the corner to shoot
+  }
+  else if (state == LOAD_POSITION)
+  {
+    if (reloadBackoutTimer.check())
+    {
+      state = LOAD_FIRE;
+      ballServo.write(100);
+      holdBallTimer.reset();
+      waitHold = true;
+      direction = EAST;
+      motorX = 0;
+      motorY = 0;
+      moveMotorXY(motorX,motorY);
+    }
+
+    // currently facing casterly rock and attempting to fire at it
+  }
+  else if (state == LOAD_FIRE)
+  {
+    if(waitHold && holdBallTimer.check()) {
+      waitHold = false;
+      ballServo.write(170);
+      dropBallTimer.reset();
+      waitDrop = true;
+    }
+    if(waitDrop && dropBallTimer.check()) {
+      ammo--;
+      if(ammo == 0) {
+        state = RELOAD_BACKOUT;
+        motorX = 0;
+        motorY = MOTOR_ON;
+        waitDrop = false;
+        waitHold = false;
+        backoutTimer.reset();
+        ballServo.write(100);
+      } else {
+        waitDrop = false;
+        holdBallTimer.reset();
+        waitHold = true;
+        ballServo.write(100);
+      }
+    }
+  } 
+  else if (state == RELOAD_BACKOUT) 
+  {
+      if(backoutTimer.check()) {
+          state = RELOAD_SOUTH;
+          motorX = -MOTOR_ON;
+          motorY = 0;
+          direction = SOUTH;
+          wait = false;
+      }
+  }  
+  else if (state == RELOAD_SOUTH) {
+ 
+    // stop to shoot
+    if (!wait && checkBumperBelow(8))
+    {
+      metTimer.reset();
+      wait = true;
+    }
+    if (metTimer.check() && wait && checkBumperBelow(8))
+    {
+      Serial.println(state);
+      wait = false;
+      state = LOAD_WEST;
+      direction = WEST;
+      motorX = 0;
+      motorY = -MOTOR_ON;
+      
+    }
+
+  }
+          
+
+}
+
+/* checkBumper(int threshold)
+ * ------------
+ * validates to see if a specified bumper has been hit, used
+ * for progressing the events of the warrior states. The threshold
+ * arugument can be used to specify how far before the wall you 
+ * want to identify as "hitting the wall".
+ */
+bool checkBumperBelow(int threshold)
+{
+  int value = readUSSRDirection(direction);
+  return value < threshold;
+}
+
+bool checkBumperAbove(int threshold)
+{
+  int value = readUSSRDirection(direction);
+  return value >= threshold;
+}
+
+/* readUSSRDirection(char dir)
+ * ------------
+ * Returns a value for the specified ultra-sonic sensor in inches
+ */
+int readUSSRDirection(int dir)
+{
+
+  // send trigger
+  delayMicroseconds(2);
+  digitalWrite(USSR_TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(USSR_TRIG, LOW);
+
+  // int nval = (usN_value / 2) / 74.0;
+  // int eval = (usE_value / 2) / 74.0;
+  // int wval = (usW_value / 2) / 74.0;
+  // int sval = (usS_value / 2) / 74.0;
+  //
+  //Serial.print("Direction: ");
+  //Serial.print(dir);
+  //Serial.print(" Value: ");
+
+  //if(dir == NORTH) Serial.print(nval);
+  //if(dir == EAST) Serial.print(eval);
+  //if(dir == WEST) Serial.print(wval);
+  //if(dir == SOUTH) Serial.print(sval);
+
+  Serial.println(" ");
+
+  // return distance from specified wall from reading sensor
+  if (dir == NORTH)
+    return (usN_value / 2) / 29.1;
+  if (dir == EAST)
+    return (usE_value / 2) / 29.1;
+  if (dir == WEST)
+    return (usW_value / 2) / 29.1;
+  if (dir == SOUTH)
+    return (usS_value / 2) / 29.1;
+
+  // should not return -1, meaning an invalid direction is passede
+  return -1;
+}
+
+void start_usN()
+{
+  usN_timer = micros();
+  attachInterrupt(ECHO_N, end_usN, FALLING);
+}
+
+void end_usN()
+{
+  // usN_value = micros() - usN_timer;
+  usN_value -= usN_value / SAMPLE;
+  usN_value += (micros() - usN_timer) / SAMPLE;
+  attachInterrupt(ECHO_N, start_usN, RISING);
+}
+
+void start_usE()
+{
+  usE_timer = micros();
+  attachInterrupt(ECHO_E, end_usE, FALLING);
+}
+
+void end_usE()
+{
+  //usE_value = micros() - usE_timer;
+
+  usE_value -= usE_value / SAMPLE;
+  usE_value += (micros() - usE_timer) / SAMPLE;
+  attachInterrupt(ECHO_E, start_usE, RISING);
+}
+
+void start_usW()
+{
+  usW_timer = micros();
+  attachInterrupt(ECHO_W, end_usW, FALLING);
+}
+
+void end_usW()
+{
+  //usW_value = micros() - usW_timer;
+
+  usW_value -= usW_value / SAMPLE;
+  usW_value += (micros() - usW_timer) / SAMPLE;
+  attachInterrupt(ECHO_W, start_usW, RISING);
+}
+
+void start_usS()
+{
+  usS_timer = micros();
+  attachInterrupt(ECHO_S, end_usS, FALLING);
+}
+
+void end_usS()
+{
+  //usS_value = micros() - usS_timer;
+
+  usS_value -= usS_value / SAMPLE;
+  usS_value += (micros() - usS_timer) / SAMPLE;
+  attachInterrupt(ECHO_S, start_usS, RISING);
+}
+
+void readFromUSSR()
+{
+  delayMicroseconds(2);
+  digitalWrite(USSR_TRIG, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(USSR_TRIG, LOW);
+
+  int inchesN = (usN_value / 2) / 148.0;
+  int inchesE = (usE_value / 2) / 148.0;
+  int inchesW = (usW_value / 2) / 148.0;
+  int inchesS = (usS_value / 2) / 148.0;
+  Serial.print("distanceN: ");
+  Serial.println(inchesN);
+
+  Serial.print("distanceE: ");
+  Serial.println(inchesE);
+
+  Serial.print("distanceW: ");
+  Serial.println(inchesW);
+
+  Serial.print("distanceS: ");
+  Serial.println(inchesS);
+  Serial.println(" ");
+}
+
+void moveMotor()
+{
+}
+
+void moveMotorXY(signed int x, signed int y)
+{
+  turnOnMotor(M1IN1, M1IN2, abs(x) * 2, x >= 0 ? 1 : 0);
+  turnOnMotor(M3IN1, M3IN2, abs(x) * 2, x >= 0 ? 0 : 1);
+  turnOnMotor(M2IN1, M2IN2, abs(y) * 2, y >= 0 ? 1 : 0);
+  turnOnMotor(M4IN1, M4IN2, abs(y) * 2, y >= 0 ? 1 : 0);
+}
+
+void turnOnMotor(int IN1, int IN2, int speed, bool direction)
+{
+  if (direction)
+  {
+    analogWrite(IN1, 255 - speed);
+    digitalWrite(IN2, 1);
+  }
+  else
+  {
+    analogWrite(IN1, speed);
+    digitalWrite(IN2, 0);
+  }
+}

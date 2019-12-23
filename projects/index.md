@@ -1,2 +1,38 @@
 Projects
 ========
+
+Quail: An All-In-One Liquid Rocket Motor EGSE Board
+-----------------------------------------
+
+As a part of SSI's 2019 Spaceport America Cup (formerly known as IREC) entry, the propulsion subteam designed and built a new version of the team's liquid rocket motor. The intent was to fly this motor at the competition instead of the COTS solid motors we had used previously, rolling the propulsion and IREC teams into one. It was a pressure-fed, kerosene/nitrous motor with enough impulse to take us to 30,000 feet. To support the liquid motor project, Damian Loya and I designed an all-in-one electronic ground support equipment board for driving solenoids, pyrotechnic igniters, load cells, pressure transducers, and other sensors. I did most of the schematics, while Damian did most of the layout, assembly, and testing.
+
+More coming soon...
+
+Space Stack: A High-Power Rocket Avionics System
+---------------------------------
+
+For the Olympus 2019 project as well as SSI's Spaceshot project, Tim Vrakas, Shreya Ravi, and I developed the next generation of SSI's of high-powered rocket avionics systems. We conceived of the new architecture, specced components, designed the PCBs, assembled and tested them, and flew the system multiple times. The design consisted of multiple, circular boards meant to be stacked on top of each other and each serving specific functions.
+<p align="center" style="margin:0;"><img src="SpaceStackComparison.jpg" alt="Space Stack Comparison" style="max-width:50%;"></p>
+<p align="center" style="margin:0;"><em>The new Space Stack system (left), compared to the prior year's AV bay (right).</em></p>
+
+The top board was the RF board, housing an OEM GPS module and SSI's 70-cm long-distance radio. The radio's dipole antenna mounted through a 3D printed plate that was stood-off from the RF board so that the antenna would stick forward into the tapering section of the nose cone. The radio allowed us to receive live telemetry from the rocket during flight as well as arm and disarm the rocket's parachute deployment pyrotechnics at a distance.
+<p align="center" style="margin:0;"><img src="SpaceStackBoards.jpg" alt="Space Stack Boards" style="max-width:25%;"></p>
+<p align="center" style="margin:0;"><em>From top: the RF board, the COTS board, SpaceSalmon, and the bulkhead board.</em></p>
+
+Below the RF board sits two flight computers. The purpose of a flight computer is to sense the current rocket state, log data, and deploy parachutes at specified times (apogee for the smaller drogue parachute, and 1500 feet for the larger main parachute). Tim developed a custom flight computer called SpaceSalmon, based on the SAME51 microcontroller (same family used in the Adafruit Feather M0), and using the MC33797 high-reliability automotive squib driver chip. Since this flight computer would need to be flight-validated before it could be entrusted with parachute deployments, Shreya designed a second flight computer board to interface with the popular hobby rocketry altimeter StratoLoggerCF. This was our second flight computer, and allowed us to get flight heritage with SpaceSalmon before risking the rocket or people's safety. Each flight computer used two 18650 batteries for power. These power supplies were entirely isolated (including grounding) to ensure faults in one system wouldn't disrupt the other.
+<p align="center" style="margin:0;"><img src="SpaceStackDirty.jpeg" alt="Space Stack Dirty" style="max-width:50%;"></p>
+<p align="center" style="margin:0;"><em>A minimized Space Stack after the system's first test fight. After landing, the parachute repeatedly lifted and dropped the forward airframe onto the ground, making the steel nose cone tip come off and allowing dirt inside. Hence, the dirt on the antenna.</em></p>
+
+Lastly, the bottom board broke out the pyrotechnic signal lines to connectors. From this point the pyrotechnic signal lines connected via wires to the recovery bay. We also designed the system to use I2C in a multi-master configuration to communicate between boards, allowing us to pass data between the flight computers and the radio. However, due to implementation issues, we didn't get I2C working during the year, and our design obviated the need for it. For more details on this project, see the Avionics section (page 27) of the [Olympus 2019 project technical report](Olympus2019ProjectReport.pdf). Schematics, board layouts, test reports, and other design files are included in the appendices.
+
+ME210 Project: A Case Study in Scrappiness
+------------------------------------------
+
+The goal here was to build a little robot to roll around in an arena and shoot balls at towers to knock them down for points. This was a fun project because of how much it rewarded not over-designing your robot. While we built the chassis out of three simple pieces of laser-cut plywood and acrylic, our launcher system was made only out of scrap materials from the lab and hot glue. The wonderful thing about this setup was that the inaccuracies in the launcher system could be fixed just by heating things up with a hot air gun and adjusting them freely. Whenever the ball didn't go in the right direction, it was easy to fix the launcher to remedy the issue. Teams that attempted to design their launchers in CAD before building (sometimes 3D printing or laser cutting) them found it much harder to get a minimum viable product. Our project website can be found [here](LucyInTheSkyWithDiodes/).
+<p align="center" style="margin:0;"><img src="LucyInTheSkyWithDiodes.jpg" alt="LSD Robot" style="max-width:50%;"></p>
+<p align="center" style="margin:0;"><em>The robot.</em></p>
+
+A SDR GPS Payload for Rockets
+-----------------------------
+
+
