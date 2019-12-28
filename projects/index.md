@@ -4,11 +4,16 @@ Projects
 Quail: An All-In-One Liquid Rocket Motor EGSE Board
 -----------------------------------------
 
-As a part of SSI's 2019 Spaceport America Cup (formerly known as IREC) entry, the propulsion subteam designed and built a new version of the team's liquid rocket motor. The intent was to fly this motor at the competition instead of the COTS solid motors we had used previously, rolling the propulsion and IREC teams into one. It was a pressure-fed, kerosene/nitrous motor with enough impulse to take us to 30,000 feet. To support the liquid motor project, Damian Loya and I designed an all-in-one electronic ground support equipment board for driving solenoids, pyrotechnic igniters, load cells, pressure transducers, and other sensors. I did most of the schematics, while Damian did most of the layout, assembly, and testing.
+As a part of SSI's 2019 Spaceport America Cup (formerly known as IREC) entry, the propulsion subteam designed and built a new version of the team's liquid rocket motor. The intent was to fly this motor at the competition instead of the COTS solid motors we had used previously, rolling the propulsion and IREC teams into one. It was a pressure-fed, kerosene/nitrous motor with enough impulse to take us to 30,000 feet. To support the liquid motor project, Damian Loya and I designed an all-in-one electronic ground support equipment (EGSE) board for driving solenoids, pyrotechnic igniters, load cells, pressure transducers, and other sensors. I did most of the component speccing and schematics, while Damian did most of the layout, assembly, and testing.
+<p align="center" style="margin:0;"><img src="Quail.jpeg" alt="Quail" style="max-width:50%;"></p>
+<p align="center" style="margin:0;"><em>Quail after assembly.</em></p>
+<p></p>
+<p align="center" style="margin:0;"><img src="QuailCart.jpg" alt="Quail on GSE Cart" style="max-width:50%;"></p>
+<p align="center" style="margin:0;"><em>Quail on the GSE cart.</em></p>
 
 More coming soon...
 
-Space Stack: A High-Power Rocket Avionics System
+Space Stack: A High-Power-Rocket Avionics System
 ---------------------------------
 
 For the Olympus 2019 project as well as SSI's Spaceshot project, Tim Vrakas, Shreya Ravi, and I developed the next generation of SSI's of high-powered rocket avionics systems. We conceived of the new architecture, specced components, designed the PCBs, assembled and tested them, and flew the system multiple times. The design consisted of multiple, circular boards meant to be stacked on top of each other and each serving specific functions.
