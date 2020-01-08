@@ -4,21 +4,20 @@ Projects
 Quail: An All-In-One Liquid Rocket Motor EGSE Board
 -----------------------------------------
 
-As a part of SSI's 2019 Spaceport America Cup (formerly known as IREC) entry, the propulsion subteam designed and built a new version of the team's liquid rocket motor. The intent was to fly this motor at the competition instead of the COTS solid motors we had used previously, rolling the propulsion and IREC teams into one. It was a pressure-fed, kerosene/nitrous motor with enough impulse to take us to 30,000 feet. To support the liquid motor project, Damian Loya and I designed an all-in-one electronic ground support equipment (EGSE) board for driving solenoids, pyrotechnic igniters, load cells, pressure transducers, and other sensors. I did most of the component speccing and schematics, while Damian did most of the layout, assembly, and testing.
+As a part of SSI's 2019 Spaceport America Cup (formerly known as IREC) entry, the propulsion subteam designed and built a new version of the team's liquid rocket motor. The intent was to fly this motor at the competition instead of the COTS solid motors we had used previously, rolling the propulsion and IREC teams into one. It was a pressure-fed, kerosene/nitrous motor with enough impulse to take us to 30,000 feet. To support the liquid motor project, Damian Loya and I designed an all-in-one electronic ground support equipment (EGSE) board for driving solenoids, pyrotechnic igniters, load cells, pressure transducers, and other sensors. I did most of the component speccing and schematics, while Damian did most of the layout, assembly, and testing. Props to him for doing so much and really making board come together.
 <p align="center" style="margin:0;"><img src="Quail.jpeg" alt="Quail" style="max-width:50%;"></p>
 <p align="center" style="margin:0;"><em>Quail after assembly.</em></p>
-<p></p>
+
+Quail is designed to integrate all electrical requirements of the ground support equipment. It is capable of supporting up to six solenoids, eight pyrotechnic charges, five pressure sensors, four load cells, and one anemometer. The microcontroller is a SAMD21 low-power 32-bit ARM Cortex-M0+ MCU which was selected due to its available I/O and widespread support. The solenoids are driven by low-side MOSFET switches with flyback diodes so that the solenoids can be controlled via pulse-width-modulation (PWM) to keep their current consumption low when open. The pyrotechnics are controlled by two automotive-grade airbag squib drivers, which ensure reliability and provide the ability to hardware lock-out charge firings. The pressure sensordata is read in through the analog-to-digital converter (ADC) channels in the microcontroller. Finally, the load cells are driven by an ADS1148 sensor ADC which supports reading in the low-voltage, differential signals produced by the load cells. To minimize the susceptibility of the load cell readings to noise produced from the digital logic and solenoid switching, the load cell ADC is placed on its own section of ground plane with its own regulators. This ground plane is tied to the digital ground plane at a "star point" near the regulators such that both ground planes can be referenced against each other, while maximizing the isolation of the low-voltage ADC circuitry. Quail additionally logs its own data to an SD card and uses one of SSI's custom radio boards to communicate over long ranges to the control station.
 <p align="center" style="margin:0;"><img src="QuailCart.jpg" alt="Quail on GSE Cart" style="max-width:50%;"></p>
 <p align="center" style="margin:0;"><em>Quail on the GSE cart.</em></p>
-
-More coming soon...
 
 Space Stack: A High-Power-Rocket Avionics System
 ---------------------------------
 
 For the Olympus 2019 project as well as SSI's Spaceshot project, Tim Vrakas, Shreya Ravi, and I developed the next generation of SSI's of high-powered rocket avionics systems. We conceived of the new architecture, specced components, designed the PCBs, assembled and tested them, and flew the system multiple times. The design consisted of multiple, circular boards meant to be stacked on top of each other and each serving specific functions.
 <p align="center" style="margin:0;"><img src="SpaceStackComparison.jpg" alt="Space Stack Comparison" style="max-width:50%;"></p>
-<p align="center" style="margin:0;"><em>The new Space Stack system (left), compared to the prior year's AV bay (right).</em></p>
+<p align="center" style="margin:0;"><em>The new Space Stack system (left), compared to the prior year's AV bay (right). The SpaceStack doesn't have its antenna mounted on it so the overall length in the end is similar, but it can be put further into a tapering rocket nose cone.</em></p>
 
 The top board was the RF board, housing an OEM GPS module and SSI's 70-cm long-distance radio. The radio's dipole antenna mounted through a 3D printed plate that was stood-off from the RF board so that the antenna would stick forward into the tapering section of the nose cone. The radio allowed us to receive live telemetry from the rocket during flight as well as arm and disarm the rocket's parachute deployment pyrotechnics at a distance.
 <p align="center" style="margin:0;"><img src="SpaceStackBoards.jpg" alt="Space Stack Boards" style="max-width:25%;"></p>
@@ -30,7 +29,7 @@ Below the RF board sits two flight computers. The purpose of a flight computer i
 
 Lastly, the bottom board broke out the pyrotechnic signal lines to connectors. From this point the pyrotechnic signal lines connected via wires to the recovery bay. We also designed the system to use I2C in a multi-master configuration to communicate between boards, allowing us to pass data between the flight computers and the radio. However, due to implementation issues, we didn't get I2C working during the year, and our design obviated the need for it. For more details on this project, see the Avionics section (page 27) of the [Olympus 2019 project technical report](Olympus2019ProjectReport.pdf). Schematics, board layouts, test reports, and other design files are included in the appendices.
 
-ME210 Project: A Case Study in Scrappiness
+ME210 Project
 ------------------------------------------
 
 The goal here was to build a little robot to roll around in an arena and shoot balls at towers to knock them down for points. This was a fun project because of how much it rewarded not over-designing your robot. While we built the chassis out of three simple pieces of laser-cut plywood and acrylic, our launcher system was made only out of scrap materials from the lab and hot glue. The wonderful thing about this setup was that the inaccuracies in the launcher system could be fixed just by heating things up with a hot air gun and adjusting them freely. Whenever the ball didn't go in the right direction, it was easy to fix the launcher to remedy the issue. Teams that attempted to design their launchers in CAD before building (sometimes 3D printing or laser cutting) them found it much harder to get a minimum viable product. Our project website can be found [here](LucyInTheSkyWithDiodes/).
@@ -40,4 +39,4 @@ The goal here was to build a little robot to roll around in an arena and shoot b
 A SDR GPS Payload for Rockets
 -----------------------------
 
-
+Coming soon...
