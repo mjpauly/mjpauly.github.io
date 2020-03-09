@@ -1,0 +1,28 @@
+Winter 2020 Photography Workshop Final Portfolio
+================================================
+
+While taking and editing pictures this quarter, I found myself constantly returning to the process of _de-familiarization_&mdash;taking images of ordinary objects or textures and transforming them to make them strange to the viewer. I have to credit Stanford professor Alexander Nemerov for introducing this concept of de-familiarization to me with his discussion of the work of Vija Celmins. Her work uses other techniques to achieve this effect, but the edits I stuck to were inverting colors, shifting hues, and obscuring unwanted parts of the images. While these techniques are rather simple, the intent is still to puzzle the viewer about what they are looking at and make them consider the sight with fresh eyes. This effect relies on the fact that the edits do not change the underlying structure of the image, but only affect the color and relative intensity of the different parts of the image. The image is not obviously fictionalized, but it still twists how you see the natural world.
+
+In some ways I like to think of it in terms of information. Everything we see in the world follows some sort of complex probability distribution. Images you see regularly have a higher probability of appearance, while images you see less often&mdash;maybe even never&mdash;have a lower probability of appearance. Images with a lower probability carry more information than images with a higher probability. Thus, images you never expect to see tell you far more about the outside world than images you see all the time. Let's say you go out onto the street and see cars. What does that tell you? That there are cars on the streets of Paris? You already knew that. But what if you went out and saw horse-drawn hovercrafts? Now your conception of the world you live in needs to be reworked. What I have done is take ordinary images and transform them to be unlike how they naturally appear just with inversion and tweaking colors. This strips away much of the redundancy that exists in images taken in natural lighting that typically contributes to a higher probability of appearance.
+
+I find it fascinating how this redundancy is everywhere in the world we see given how things are naturally lit. We typically light our environments from above, making shadows cast by objects fall downward. We use lighting with warmer hues, making cooler hues rarer. These rules help us identify what we are looking at with greater ease and speed, and they work together to make you very confident in how objects appear in natural lighting. The fact that you almost always perceive the appearance of objects in this way simplifies your process of perception. However, when we invert an image, light becomes dark, warm becomes cool, and you are suddenly faced with something that is a little harder to identify. It doesn't follow the typical rules for object lighting: its shadows cast are upwards and its colors are wrong, so the image is one that is now very unlikely for you to see. By violating the natural rules of lighting, it carries more information in a way. Your mind has to think harder to decide what to make of it. Whatever you identify it as in the end, even if you identify it as purely fiction, it still challenges how your brain matches what it sees in the world to its model of reality. Using techniques like this, I have attempted to create imagined textures, objects, and scenes that are on the cusp of realism but are strange and uncanny nonetheless.
+
+<p align="center" style="margin:0;"><a href="1.jpg"><img src="1.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="2.jpg"><img src="2.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="3.jpg"><img src="3.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="4.jpg"><img src="4.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="5.jpg"><img src="5.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="6.jpg"><img src="6.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="7.jpg"><img src="7.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="8.jpg"><img src="8.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="9.jpg"><img src="9.jpg" alt="" style="max-width:100%;"></a></p>
+
+<p align="center" style="margin:0;"><a href="10.jpg"><img src="10.jpg" alt="" style="max-width:100%;"></a></p>
