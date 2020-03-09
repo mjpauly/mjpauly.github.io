@@ -26,3 +26,5 @@ I find it fascinating how this redundancy is everywhere in the world we see give
 <p align="center" style="margin:0;"><a href="9.jpg"><img src="9.jpg" alt="" style="max-width:100%;"></a></p>
 
 <p align="center" style="margin:0;"><a href="10.jpg"><img src="10.jpg" alt="" style="max-width:100%;"></a></p>
+
+Thank you to Nicolas Baudouin for teaching this quarter-long photography workshop and guiding my artistic development through its duration.
